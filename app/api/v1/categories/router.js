@@ -1,12 +1,8 @@
 const express = require("express");
 const router = express();
-const { create } = require("./controller");
+const { create, index } = require("./controller");
 
-router.get("/categories", (req, res) => {
-  res.status(200).json({
-    message: "halaman categories",
-  });
-});
+router.get("/categories", index);
 
 router.post("/categories/create", create);
 
