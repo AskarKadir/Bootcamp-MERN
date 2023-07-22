@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express();
+const { create } = require("./controller");
 
 router.get("/categories", (req, res) => {
   res.status(200).json({
@@ -7,11 +8,7 @@ router.get("/categories", (req, res) => {
   });
 });
 
-router.post("/categories/create", (req, res) => {
-  res.status(201).json({
-    message: "halaman create categories",
-  });
-});
+router.post("/categories/create", create);
 
 router.put("/categories/:id", (req, res) => {
   res.status(200).json({
