@@ -12,6 +12,18 @@ const create = async (req, res, next) => {
   }
 };
 
+const index = async (req, res, next) => {
+  try {
+    const result = await Categories.find().select("_id name");
+    res.status(201).json({
+      data: result,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   create,
+  index,
 };
